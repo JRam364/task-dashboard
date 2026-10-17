@@ -1,21 +1,23 @@
 <div class ="dashboard">
-<h1>{{ title }}</h1>
-<input
-  type="text"
-  placeholder="Enter a task"
-  aria-label="Task"
-  (input)="taskInput  = $any($event.target).value"
->
+  <h1>{{ title }}</h1>
 
-<button (click)="addTask()">Add Task</button>
+  <div class="task-form">
+    <input
+      type="text"
+      placeholder="Enter a task"
+      aria-label="Task"
+      (input)="taskInput  = $any($event.target).value"
+    >
 
-<h2>Tasks</h2>
+    <button class="add-button" (click)="addTask()">Add Task</button>
+</div>
+    <h2>Tasks</h2>
 
-@for (item of taskList; track $index) {
-  <div>
-    <span>{{ item }}</span>
-    <button (click)="deleteTask($index)">Delete</button>
-  </div>
-}
-
+    @for (item of taskList; track $index) {
+      <div class="task-item">
+        <span>{{ item }}</span>
+        <button class="delete-button" (click)="deleteTask($index)">Delete</button>
+      </div>
+    }
+  
 </div>
