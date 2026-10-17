@@ -3,9 +3,13 @@
   type="text"
   placeholder="Enter a task"
   aria-label="Task"
-  (input)="task = $any($event.target).value"
+  (input)="taskInput  = $any($event.target).value"
 >
 
-<button (click)="showTask()">Add Task</button>
+<button (click)="addTask()">Add Task</button>
 
-<p>{{ message }}</p>
+<h2>Tasks</h2>
+
+@for (item of taskList; track $index) {
+  <p>{{ item }}</p>
+}
