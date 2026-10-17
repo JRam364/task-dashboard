@@ -7,6 +7,12 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+// Define class that contains logic and data for 
+// Angular component
 export class App {
-  protected readonly title = signal('task-dashboard');
+  title = 'Task Dashboard';
+
+  sayHello() {
+    return 'Hello!';
+  }
 }
