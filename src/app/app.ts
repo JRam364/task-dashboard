@@ -11,10 +11,11 @@ import { RouterOutlet } from '@angular/router';
 // Angular component
 export class App {
   title = 'Task Dashboard';
+  
+  task = '';
   message = '';
 
-  showMessage(){
-    this.message = "Welcome to the Task Dashboard"
+  showTask() {
+    this.message = this.task;
   }
-
 }

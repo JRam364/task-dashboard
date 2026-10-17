@@ -1,4 +1,11 @@
 <h1>{{ title }}</h1>
-<button (click)="showMessage()">Show Message</button>
+<input
+  type="text"
+  placeholder="Enter a task"
+  aria-label="Task"
+  (input)="task = $any($event.target).value"
+>
+
+<button (click)="showTask()">Add Task</button>
 
 <p>{{ message }}</p>
