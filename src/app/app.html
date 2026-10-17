@@ -11,5 +11,8 @@
 <h2>Tasks</h2>
 
 @for (item of taskList; track $index) {
-  <p>{{ item }}</p>
+  <div>
+    <span>{{ item }}</span>
+    <button (click)="deleteTask($index)">Delete</button>
+  </div>
 }

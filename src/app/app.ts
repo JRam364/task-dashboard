@@ -19,4 +19,10 @@ export class App {
   addTask() {
     this.taskList.push(this.taskInput);
   }
+
+  // Remove item from an array with 
+  // specific position and 1 item
+  deleteTask(index: number) {
+  this.taskList.splice(index, 1);
+}
 }
