@@ -39,18 +39,20 @@ export class App implements OnInit{
 
     this.taskInput = '';
     this.saveTasks();
-    }
+  }
 
   // Remove item from an array with 
   // specific position and 1 item
   deleteTask(index: number) {
-  this.taskList.splice(index, 1);
-  this.saveTasks();
+    this.taskList.splice(index, 1);
+    this.saveTasks();
   }
 
   // Function for reversing boolean values
   toggleTask(index: number) {
-  this.taskList[index].completed = !this.taskList[index].completed;
+    this.taskList[index].completed = !this.taskList[index].completed;
+
+    this.saveTasks();
   }
 
   // Define temperature as a signal with null first
