@@ -21,10 +21,20 @@ export class App implements OnInit{
 
   title = 'Task Dashboard';
 
+  
+
   taskInput = '';
   // Make taskList store name, and completion
   taskList: { name: string; completed: boolean }[] = [];
- 
+
+  // Automatically change the number of tasks
+ get activeCount(): number {
+  return this.taskList.filter(task => !task.completed).length;
+}
+
+  get completedCount(): number {
+    return this.taskList.filter(task => task.completed).length;
+}
 
   // Push tasks with no completion.. yet!
   addTask() {
