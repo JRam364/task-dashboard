@@ -1,6 +1,7 @@
 
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RouterUpgradeInitializer } from '@angular/router/upgrade';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,10 @@ export class App implements OnInit{
 
   // Push tasks with no completion.. yet!
   addTask() {
+    if (this.taskInput.trim() === ""){
+      return;
+    }
+
      this.taskList.push({
       name: this.taskInput,
       completed: false
