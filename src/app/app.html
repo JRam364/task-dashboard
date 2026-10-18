@@ -21,3 +21,11 @@
     }
   
 </div>
+
+<h2>Weather</h2>
+
+<button (click)="getWeather()">Get Weather</button>
+
+@if (temperature !== null) {
+  <p>Current temperature: {{ temperature }}°F</p>
+}
