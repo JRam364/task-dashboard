@@ -14,17 +14,29 @@ export class App implements OnInit{
   title = 'Task Dashboard';
 
   taskInput = '';
-  taskList: string[] = [];
+  // Make taskList store name, and completion
+  taskList: { name: string; completed: boolean }[] = [];
  
 
+  // Push tasks with no completion.. yet!
   addTask() {
-    this.taskList.push(this.taskInput);
-  }
+     this.taskList.push({
+      name: this.taskInput,
+      completed: false
+    });
+
+    this.taskInput = '';
+    }
 
   // Remove item from an array with 
   // specific position and 1 item
   deleteTask(index: number) {
   this.taskList.splice(index, 1);
+  }
+
+  // Function for reversing boolean values
+  toggleTask(index: number) {
+  this.taskList[index].completed = !this.taskList[index].completed;
   }
 
   // Define temperature as a signal with null first

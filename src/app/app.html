@@ -15,7 +15,21 @@
 
     @for (item of taskList; track $index) {
       <div class="task-item">
-        <span>{{ item }}</span>
+        <span
+           class="task-name"
+            [class.completed]="item.completed"
+            (click)="toggleTask($index)"
+            (keydown.enter)="toggleTask($index)"
+            (keydown.space)="$event.preventDefault(); toggleTask($index)"
+            role="button"
+            tabindex="0"
+            [attr.aria-pressed]="item.completed"
+          >
+      {{ item.name }}
+        </span>
+
+
+
         <button class="delete-button" (click)="deleteTask($index)">Delete</button>
       </div>
     }
