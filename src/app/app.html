@@ -3,10 +3,20 @@
 
   <div class="task-form">
     <input
-      type="text"
-      placeholder="Enter a task"
-      aria-label="Task"
-      (input)="taskInput  = $any($event.target).value"
+    type="text"
+    class="task-input"
+    placeholder="Enter a task"
+    aria-label="Task"
+    [value]="taskInput"
+    (input)="taskInput = $any($event.target).value"
+  >
+
+    <input
+      type="time"
+      class="time-input"
+      aria-label="Due time"
+      [value]="taskTime"
+      (input)="taskTime = $any($event.target).value"
     >
 
     <button class="add-button" (click)="addTask()">Add Task</button>

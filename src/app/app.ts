@@ -22,10 +22,15 @@ export class App implements OnInit{
   title = 'Task Dashboard';
 
   
-
+  taskTime = '';
   taskInput = '';
+ 
+
   // Make taskList store name, and completion
-  taskList: { name: string; completed: boolean }[] = [];
+  taskList: { name: string; 
+              completed: boolean; 
+              dueTime:string;
+            }[] = [];
 
   // Automatically change the number of tasks
  get activeCount(): number {
@@ -44,7 +49,9 @@ export class App implements OnInit{
 
      this.taskList.push({
       name: this.taskInput,
-      completed: false
+      completed: false,
+      dueTime: this.taskTime
+
     });
 
     this.taskInput = '';
