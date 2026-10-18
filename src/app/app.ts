@@ -33,8 +33,8 @@ export class App implements OnInit{
             }[] = [];
 
   // Automatically change the number of tasks
- get activeCount(): number {
-  return this.taskList.filter(task => !task.completed).length;
+  get activeCount(): number {
+   return this.taskList.filter(task => !task.completed).length;
 }
 
   get completedCount(): number {
@@ -55,6 +55,7 @@ export class App implements OnInit{
     });
 
     this.taskInput = '';
+    this.taskTime = '';
     this.saveTasks();
   }
 

@@ -50,7 +50,12 @@
           >
       {{ item.name }}
         </span>
-
+      
+      @if (item.dueTime) {
+        <span class="due-time">
+          Due: {{ item.dueTime }}
+        </span>
+    }
 
 
         <button class="delete-button" (click)="deleteTask($index)">Delete</button>
