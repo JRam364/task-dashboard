@@ -83,3 +83,25 @@ button {
 .delete-button {
   margin-left: auto;
 }
+
+.weather-widget {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  background-color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.weather-widget h2 {
+  margin: 0 0 10px;
+}
+
+.weather-widget p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
