@@ -39,7 +39,7 @@ export class App implements OnInit{
   async getWeather() {
     // Send a GET to weather API
     const response = await fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&current=temperature_2m&temperature_unit=fahrenheit'
+      'https://api.open-meteo.com/v1/forecast?latitude=39.48&longitude=-88.37&current=temperature_2m&temperature_unit=fahrenheit'
     );
     console.log('Response status:', response.status);
 
