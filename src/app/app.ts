@@ -12,6 +12,13 @@ import { RouterUpgradeInitializer } from '@angular/router/upgrade';
 // Define class that contains logic and data for 
 // Angular component
 export class App implements OnInit{
+  // Initialization function
+  ngOnInit() {
+      this.getWeather();
+      this.loadTasks();
+    }
+
+
   title = 'Task Dashboard';
 
   taskInput = '';
@@ -31,12 +38,14 @@ export class App implements OnInit{
     });
 
     this.taskInput = '';
+    this.saveTasks();
     }
 
   // Remove item from an array with 
   // specific position and 1 item
   deleteTask(index: number) {
   this.taskList.splice(index, 1);
+  this.saveTasks();
   }
 
   // Function for reversing boolean values
@@ -47,11 +56,7 @@ export class App implements OnInit{
   // Define temperature as a signal with null first
   temperature = signal<number | null>(null);
 
-  // Initialization function
-  ngOnInit() {
-      this.getWeather();
-    }
-
+  
   // Define this function that can wait for an API response
   async getWeather() {
     // Send a GET to weather API
@@ -67,5 +72,20 @@ export class App implements OnInit{
     console.log('Weather data:', data);
     // Read current temperature and store result for display
     this.temperature.set(data.current.temperature_2m);
+  }
+
+  // Initiate key to identify saved data
+  saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.taskList));
+  }
+
+  loadTasks() {
+    // Get any saved tasks from local storage
+    const savedTasks = localStorage.getItem('tasks');
+
+    // If any are present, add them to taskList
+    if (savedTasks){
+      this.taskList = JSON.parse(savedTasks);
+    }
   }
 }
